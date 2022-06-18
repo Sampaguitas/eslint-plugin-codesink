@@ -1,0 +1,30 @@
+{
+  "name": "eslint-plugin-codesink",
+  "main": "index.js",
+  "author": "Timothee Desurmont",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "linter",
+    "security",
+    "vulnerabilities",
+    "advisories",
+    "audit",
+    "scan",
+    "scanning"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha tests --recursive --reporter dot",
+    "lint": "eslint .  --rulesdir lib/rules",
+    "lint-fix": "eslint . --fix --rulesdir lib/rules"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^5.27.1",
+    "esprima": "^4.0.1"
+  }
+}
