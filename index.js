@@ -1,5 +1,3 @@
-Object.freeze(Object.prototype);
-
 function setValueByPath(object, path, value) {
     const pathArray = path.split(".");
     const attributeToSet = pathArray.pop();
@@ -17,12 +15,16 @@ function setValueByPath(object, path, value) {
 
         // if (attr === "__proto__" || attr === "constructor" || attr === "prototype") continue;
 
-        objectToModify = objectToModify[attr];
-    };
+        if (!["__proto__", "constructor", "prototype"].includes(attr)) {
+            objectToModify = objectToModify[attr];
+        }
+
+    }
 
     objectToModify[attributeToSet] = value;
     return object;
 }
+
 
 setValueByPath({}, "__proto__.polluted", true);
 
