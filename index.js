@@ -15,7 +15,7 @@ function setValueByPath(object, path, value) {
 
         // if (attr === "__proto__" || attr === "constructor" || attr === "prototype") continue;
 
-        if (!["__proto__", "constructor", "prototype"].includes(attr)) {
+        if (["__proto__", "constructor", "prototype"].includes(attr)) {
             objectToModify = objectToModify[attr];
         }
 

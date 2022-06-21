@@ -39,8 +39,34 @@ pathArray.forEach(function(attr) {
 ancestor.params.some(p => p.name === node.name)
 ["forEach", "map", "filter", ].includes(ancestor.parent.calle.property.name)
 
+
+Javascript loop statements
+
 ```js
-for (attr of pathArray) {
-// our sink
+let pathArray = ["__proto__", "polluted"]
+
+//ForOfStatement (attr, loops, continue)
+for (let attr of pathArray) {
+	objectToModify = objectToModify[attr];
 }
+
+//WhileStatement (attr[i], loops, continue)
+let i = 0;
+while (i < pathArray.length) {
+  objectToModify = objectToModify[pathArray[i]];
+}
+
+//ForStatement (attr[i], loops, continue)
+for (let i = 0; i < pathArray.length; i++) {
+  objectToModify = objectToModify[pathArray[i]];
+}
+
+//ForInStatement (attr[i], loops, continue)
+for (let i in pathArray) {
+  objectToModify = objectToModify[pathArray[i]];
+}
+
 ```
+
+
+
