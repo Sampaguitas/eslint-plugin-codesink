@@ -13,5 +13,6 @@ module.exports = {
     // "parserOptions": { "ecmaVersion": 6 },
     "rules": {
         "no-prototype-pollution": "error",
+        "no-exposed-credentials": "error",
     }
 };
