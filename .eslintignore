@@ -1,2 +1,6 @@
 lib/rules
+lib/processors
 test/lib/rules
+test/lib/processors
+docs/rules
+docs/processors
