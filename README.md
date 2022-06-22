@@ -53,11 +53,5 @@ If you fork or clone this project, create a `settings.json` file inside the .vsc
 
 ## Supported Rules
 
-* codesink/no-hardcoded-credentials
-* codesink/no-prototype-pollution
-
-
-
-
-
-
+* [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
+* [codesink/no-prototype-pollution](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-prototype-pollution.md)
