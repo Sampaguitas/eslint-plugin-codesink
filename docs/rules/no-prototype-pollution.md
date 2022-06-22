@@ -93,4 +93,3 @@ Map can be used instead of objects in most cases. If Map methods are used instea
 
 * [CWE-1321: Improperly Controlled Modification of Object Prototype Attributes](https://cwe.mitre.org/data/definitions/1321.html)
 * [REF-1148: Olivier Arteau. "Prototype pollution attack in NodeJS application". 2018-05-15](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)
-* [REF-1149: Changhui Xu. "What is Prototype Pollution?". 2019-07-30](https://codeburst.io/what-is-prototype-pollution-49482fc4b638)
