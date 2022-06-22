@@ -33,7 +33,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "codesink/no-exposed-credentials": 2,
+        "codesink/no-hardcoded-credentials": 2,
         "codesink/no-prototype-pollution": 2
     }
 }
@@ -53,7 +53,7 @@ If you fork or clone this project, create a `settings.json` file inside the .vsc
 
 ## Supported Rules
 
-* codesink/no-exposed-credentials
+* codesink/no-hardcoded-credentials
 * codesink/no-prototype-pollution
 
 

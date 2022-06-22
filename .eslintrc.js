@@ -14,7 +14,7 @@ module.exports = {
     // },
     rules: {
         "no-prototype-pollution": "error",
-        "no-exposed-credentials": "error",
+        "no-hardcoded-credentials": "error",
     },
     overrides: [
         {
