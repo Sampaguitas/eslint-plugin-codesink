@@ -1,8 +1,7 @@
 /**
- * @fileoverview Enforce newlines between operands of ternary expressions
+ * @fileoverview Detect prototype pollution
  * @author Timothee Desurmont
  */
-
  "use strict";
  
  //------------------------------------------------------------------------------
