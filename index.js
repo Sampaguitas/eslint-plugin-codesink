@@ -1,0 +1,1 @@
+objectToModify = objectToModify[attr];

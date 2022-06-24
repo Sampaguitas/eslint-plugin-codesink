@@ -1,4 +1,4 @@
-# CWE-798: Use of Hard-coded Credentials
+# Prevent hard-coded credentials (no-hardcoded-credentials)
 
 The software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. 
 
