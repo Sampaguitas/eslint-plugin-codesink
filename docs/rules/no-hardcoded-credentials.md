@@ -2,9 +2,9 @@
 
 This rule detects hard-coded credentials that have been left in the code and should be removed before you push your code to a public repository.
 
-## Rule Details
+- The rule looks for the packages that you are importing to your project (aws-sdk, my-sql, tedious, mongoose, nodemailer, etc.)
 
-the rule looks for packages that you have imported to your project (aws-sdk, my-sql, tedious, mongoose, nodemailer, etc.) and ensures that the variables or configuration objects that you pass in the connection method are not exposed to the public.
+- And ensures that the variables or configuration objects that you pass in the connection methods are not exposed to the public.
 
 ## Demonstrative Examples
 
