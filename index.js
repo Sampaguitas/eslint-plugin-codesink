@@ -1,1 +1,1 @@
-objectToModify = objectToModify[attr];
+

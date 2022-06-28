@@ -22,9 +22,7 @@ Add `eslint-plugin-codesink` to the plugins section of your `.eslintrc` configur
 
 ```json
 {
-    "plugins": [
-        "eslint-plugin-codesink"
-    ]
+  "plugins": ["eslint-plugin-codesink"]
 }
 ```
 
@@ -32,10 +30,9 @@ Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "codesink/no-hardcoded-credentials": 2,
-        "codesink/no-prototype-pollution": 2
-    }
+  "rules": {
+    "codesink/no-hardcoded-credentials": 2
+  }
 }
 ```
 
@@ -43,15 +40,12 @@ If you fork or clone this project, create a `settings.json` file inside the .vsc
 
 ```json
 {
-    "eslint.options": {
-        "rulePaths": [
-            "lib/rules"
-        ]
-    }
+  "eslint.options": {
+    "rulePaths": ["lib/rules"]
+  }
 }
 ```
 
 ## Supported Rules
 
-* [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
-* [codesink/no-prototype-pollution](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-prototype-pollution.md)
+- [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)

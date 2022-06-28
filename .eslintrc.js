@@ -1,25 +1,21 @@
-"use strict";
+'use strict';
 
 module.exports = {
-    root: true,
-    env: {
-        // "browser": true,
-        // "commonjs": true,
-        // "es2021": true,
-        // "mocha": true,
-        "node": true,
+  root: true,
+  env: {
+    node: true,
+    es6: true,
+  },
+  parserOptions: {
+    ecmaVersion: 'latest',
+  },
+  rules: {
+    'no-hardcoded-credentials': 'error',
+  },
+  overrides: [
+    {
+      files: ['tests/**/*.js'],
+      env: { mocha: true },
     },
-    // parserOptions: {
-    //     ecmaVersion: "latest",
-    // },
-    rules: {
-        "no-prototype-pollution": "error",
-        "no-hardcoded-credentials": "error",
-    },
-    overrides: [
-        {
-          files: ["tests/**/*.js"],
-          env: { mocha: true },
-        },
-    ],
+  ],
 };
