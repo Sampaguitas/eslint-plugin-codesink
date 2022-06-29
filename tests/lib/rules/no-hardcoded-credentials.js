@@ -280,6 +280,35 @@ ruleTester.run('no-hardcoded-credentials', rule, {
       `,
     },
     {
+      // passport-jwt.Strategy()
+      code: `
+        var JwtStrategy = require('passport-jwt').Strategy,
+        ExtractJwt = require('passport-jwt').ExtractJwt;
+        var opts = {
+          jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+          secretOrKey: process.env.secret,
+          issuer: 'accounts.examplesoft.com',
+          audience: 'yoursite.net',
+        };
+        
+        passport.use(
+          new JwtStrategy(opts, function (jwt_payload, done) {
+            User.findOne({ id: jwt_payload.sub }, function (err, user) {
+              if (err) {
+                return done(err, false);
+              }
+              if (user) {
+                return done(null, user);
+              } else {
+                return done(null, false);
+                // or you could create a new account
+              }
+            });
+          }),
+        );
+      `,
+    },
+    {
       // pg.Pool()
       code: `
         const { Pool } = require('pg');
@@ -644,6 +673,36 @@ ruleTester.run('no-hardcoded-credentials', rule, {
         { messageId: 'packageConfigs' },
         { messageId: 'packageConfigs' },
       ],
+    },
+    {
+      // passport-jwt.Strategy()
+      code: `
+        var JwtStrategy = require('passport-jwt').Strategy,
+        ExtractJwt = require('passport-jwt').ExtractJwt;
+        var opts = {
+          jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+          secretOrKey: 'secret',
+          issuer: 'accounts.examplesoft.com',
+          audience: 'yoursite.net',
+        };
+        
+        passport.use(
+          new JwtStrategy(opts, function (jwt_payload, done) {
+            User.findOne({ id: jwt_payload.sub }, function (err, user) {
+              if (err) {
+                return done(err, false);
+              }
+              if (user) {
+                return done(null, user);
+              } else {
+                return done(null, false);
+                // or you could create a new account
+              }
+            });
+          }),
+        );
+      `,
+      errors: [{ messageId: 'packageConfigs' }],
     },
     {
       // pg.Pool()

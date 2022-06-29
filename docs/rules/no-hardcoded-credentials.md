@@ -15,6 +15,7 @@ This rule detects hard-coded credentials that have been left in the code and sho
 | mongoose            | connect()                        |
 | nodemailer          | createTransport()                |
 | oracledb            | getConnection()                  |
+| passport-jwt        | Strategy()                       |
 | pg                  | Pool(), Client()                 |
 | tedious             | Connection()                     |
 
