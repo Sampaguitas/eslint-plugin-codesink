@@ -169,6 +169,83 @@ ruleTester.run('no-hardcoded-credentials', rule, {
           .catch(err => console.log(err));
         `,
     },
+    {
+      // oracledb.getConnection()
+      code: `
+        const oracledb = require('oracledb');
+
+        oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+        
+        const mypw = process.env.secret;
+        
+        async function run() {
+          let connection;
+        
+          try {
+            connection = await oracledb.getConnection({
+              user: process.env.secret,
+              password: mypw,
+              connectString: process.env.secret,
+            });
+        
+            const result = await connection.execute(
+              'SELECT * FROM departments WHERE manager_id = :id',
+              [103], // bind value for :id
+            );
+            console.log(result.rows);
+          } catch (err) {
+            console.error(err);
+          } finally {
+            if (connection) {
+              try {
+                await connection.close();
+              } catch (err) {
+                console.error(err);
+              }
+            }
+          }
+        }
+        
+        run();
+      `,
+    },
+    {
+      // pg.Pool()
+      code: `
+        const { Pool } = require('pg');
+
+        const pool = new Pool({
+          user: process.env.secret,
+          host: process.env.secret,
+          database: process.env.secret,
+          password: process.env.secret,
+          port: 3211,
+        });
+        pool.query('SELECT NOW()', (err, res) => {
+          console.log(err, res);
+          pool.end();
+        });
+      `,
+    },
+    {
+      // pg.Client()
+      code: `
+        const { Client } = require('pg');
+
+        const client = new Client({
+          user: process.env.secret,
+          host: process.env.secret,
+          database: process.env.secret,
+          password: process.env.secret,
+          port: 3211,
+        });
+        client.connect();
+        client.query('SELECT NOW()', (err, res) => {
+          console.log(err, res);
+          client.end();
+      });
+      `,
+    },
   ],
   invalid: [
     {
@@ -361,6 +438,100 @@ ruleTester.run('no-hardcoded-credentials', rule, {
           .catch(err => console.log(err));
         `,
       errors: [{ messageId: 'packageConfigs' }],
+    },
+    {
+      // oracledb.getConnection()
+      code: `
+        const oracledb = require('oracledb');
+
+        oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT;
+        
+        const mypw = 'secret';
+        
+        async function run() {
+          let connection;
+        
+          try {
+            connection = await oracledb.getConnection({
+              user: 'secret',
+              password: mypw,
+              connectString: 'secret',
+            });
+        
+            const result = await connection.execute(
+              'SELECT * FROM departments WHERE manager_id = :id',
+              [103], // bind value for :id
+            );
+            console.log(result.rows);
+          } catch (err) {
+            console.error(err);
+          } finally {
+            if (connection) {
+              try {
+                await connection.close();
+              } catch (err) {
+                console.error(err);
+              }
+            }
+          }
+        }
+        
+        run();
+        `,
+      errors: [
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+      ],
+    },
+    {
+      // pg.Pool()
+      code: `
+        const { Pool } = require('pg');
+
+        const pool = new Pool({
+          user: 'secret',
+          host: 'secret',
+          database: 'secret',
+          password: 'secret',
+          port: 3211,
+        });
+        pool.query('SELECT NOW()', (err, res) => {
+          console.log(err, res);
+          pool.end();
+        });
+      `,
+      errors: [
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+      ],
+    },
+    {
+      // pg.Client()
+      code: `
+        const { Client } = require('pg');
+
+        const client = new Client({
+          user: 'secret',
+          host: 'secret',
+          database: 'secret',
+          password: 'secret',
+          port: 3211,
+        });
+        client.connect();
+        client.query('SELECT NOW()', (err, res) => {
+          console.log(err, res);
+          client.end();
+      });
+      `,
+      errors: [
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+      ],
     },
   ],
 });
