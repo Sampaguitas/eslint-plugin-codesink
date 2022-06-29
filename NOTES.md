@@ -65,3 +65,38 @@ for (let i in pathArray) {
   objectToModify = objectToModify[pathArray[i]];
 }
 ```
+
+const { Sequelize } = require('sequelize');
+
+// Option 1: Passing a connection URI
+// const sequelize = new Sequelize('sqlite::memory:') // Example for sqlite
+
+// Option 2: Passing parameters separately (sqlite)
+const sequelize = new Sequelize('database', 'username', 'password', {
+dialect: 'sqlite',
+storage: 'path/to/database.sqlite',
+});
+
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({username: 'api', key: process.env.MAILGUN_API_KEY || 'key-yourkeyhere'});
+
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(':memory:');
+
+db.serialize(() => {
+db.run('CREATE TABLE lorem (info TEXT)');
+
+const stmt = db.prepare('INSERT INTO lorem VALUES (?)');
+for (let i = 0; i < 10; i++) {
+stmt.run('Ipsum ' + i);
+}
+stmt.finalize();
+
+db.each('SELECT rowid AS id, info FROM lorem', (err, row) => {
+console.log(row.id + ': ' + row.info);
+});
+});
+
+db.close();

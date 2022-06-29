@@ -110,6 +110,23 @@ ruleTester.run('no-hardcoded-credentials', rule, {
         `,
     },
     {
+      // mssql.connect()
+      code: `
+        const sql = require('mssql');
+
+        async () => {
+          try {
+            // make sure that any items are correctly URL encoded in the connection string
+            await sql.connect(process.env.secret);
+            const result = await sql.query('select * from mytable where id = 1');
+            console.dir(result);
+          } catch (err) {
+            // ... error checks
+          }
+        };
+      `,
+    },
+    {
       // nodemailer.createTransport()
       code: `
             let nodemailer = require('nodemailer');
@@ -345,6 +362,32 @@ ruleTester.run('no-hardcoded-credentials', rule, {
       });
       `,
     },
+    {
+      // googleapis.google.blogger()
+      code: `
+        const { google } = require('googleapis');
+
+        // Each API may support multiple versions. With this sample, we're getting
+        // v3 of the blogger API, and using an API key to authenticate.
+        const blogger = google.blogger({
+          version: 'v3',
+          auth: process.env.secret,
+        });
+        
+        const params = {
+          blogId: '3213900',
+        };
+        
+        // get the blog details
+        blogger.blogs.get(params, (err, res) => {
+          if (err) {
+            console.error(err);
+            throw err;
+          }
+          console.log("some text");
+        });
+      `,
+    },
   ],
   invalid: [
     {
@@ -450,6 +493,26 @@ ruleTester.run('no-hardcoded-credentials', rule, {
         { messageId: 'packageConfigs' },
         { messageId: 'packageConfigs' },
       ],
+    },
+    {
+      // mssql.connect()
+      code: `
+        const sql = require('mssql');
+
+        async () => {
+          try {
+            // make sure that any items are correctly URL encoded in the connection string
+            await sql.connect(
+              'Server=localhost,1433;Database=database;User Id=username;Password=password;Encrypt=true',
+            );
+            const result = await sql.query('select * from mytable where id = 1');
+            console.dir(result);
+          } catch (err) {
+            // ... error checks
+          }
+        };
+      `,
+      errors: [{ messageId: 'packageConfigs' }],
     },
     {
       // nodemailer.createTransport()
@@ -752,6 +815,33 @@ ruleTester.run('no-hardcoded-credentials', rule, {
         { messageId: 'packageConfigs' },
         { messageId: 'packageConfigs' },
       ],
+    },
+    {
+      // googleapis.google.blogger()
+      code: `
+        const { google } = require('googleapis');
+
+        // Each API may support multiple versions. With this sample, we're getting
+        // v3 of the blogger API, and using an API key to authenticate.
+        const blogger = google.blogger({
+          version: 'v3',
+          auth: 'secret',
+        });
+        
+        const params = {
+          blogId: '3213900',
+        };
+        
+        // get the blog details
+        blogger.blogs.get(params, (err, res) => {
+          if (err) {
+            console.error(err);
+            throw err;
+          }
+          console.log("some text");
+        });
+      `,
+      errors: [{ messageId: 'packageConfigs' }],
     },
   ],
 });

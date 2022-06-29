@@ -11,8 +11,10 @@ This rule detects hard-coded credentials that have been left in the code and sho
 | aws-sdk             | config.update()                  |
 | @aws-sdk/client-ses | SESClient()                      |
 | firebase/app        | initializeApp()                  |
+| googleapis          | google.blogger()                 |
 | mysql               | createConnection(), createPool() |
 | mongoose            | connect()                        |
+| mssql               | connect()                        |
 | nodemailer          | createTransport()                |
 | oracledb            | getConnection()                  |
 | passport-jwt        | Strategy()                       |
