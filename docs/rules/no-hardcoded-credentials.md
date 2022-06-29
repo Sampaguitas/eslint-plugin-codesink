@@ -6,6 +6,17 @@ This rule detects hard-coded credentials that have been left in the code and sho
 
 - And ensures that the variables or configuration objects that you pass in the connection methods are not exposed to the public.
 
+| npm packages | Methods / Constructors           |
+| ------------ | -------------------------------- |
+| aws-sdk      | config.update()                  |
+| firebase/app | initializeApp()                  |
+| mysql        | createConnection(), createPool() |
+| mongoose     | connect()                        |
+| nodemailer   | createTransport()                |
+| oracledb     | getConnection()                  |
+| pg           | Pool(), Client()                 |
+| tedious      | Connection()                     |
+
 ## Demonstrative Examples
 
 Examples of **incorrect** code for this rule:
