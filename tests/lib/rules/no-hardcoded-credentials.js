@@ -126,6 +126,64 @@ ruleTester.run('no-hardcoded-credentials', rule, {
           `,
     },
     {
+      // nodemailer.createTransport()
+      code: `
+            let nodemailer = require('nodemailer');
+
+            nodemailer.createTransport({
+                host: process.env.secret,
+                port: 587,
+                secure: true,
+                auth: {
+                  type: 'OAuth2',
+                  user: process.env.secret,
+                  accessToken: process.env.secret,
+                },
+            });
+          `,
+    },
+    {
+      // nodemailer.createTransport()
+      code: `
+            let nodemailer = require('nodemailer');
+
+            let transporter = nodemailer.createTransport({
+              host: process.env.secret,
+              port: 465,
+              secure: true,
+              auth: {
+                type: 'OAuth2',
+                user: process.env.secret,
+                clientId: process.env.secret,
+                clientSecret: process.env.secret,
+                refreshToken: process.env.secret,
+                accessToken: process.env.secret,
+                expires: 1484314697598,
+              },
+            });
+      `,
+    },
+    {
+      // nodemailer.createTransport()
+      code: `
+            let nodemailer = require('nodemailer');
+
+            let transporter = nodemailer.createTransport({
+              host: process.env.secret,
+              port: 465,
+              secure: true,
+              auth: {
+                type: 'OAuth2',
+                user: process.env.secret,
+                serviceClient: process.env.secret,
+                privateKey: process.env.secret,
+                accessToken: process.env.secret,
+                expires: 1484314697598,
+              },
+            });
+      `,
+    },
+    {
       // aws-sdk.config.update()
       code: `
         var AWS = require('aws-sdk');
@@ -155,6 +213,18 @@ ruleTester.run('no-hardcoded-credentials', rule, {
 
         AWS.config.update(configs);
         `,
+    },
+    {
+      // @aws-sdk/client-ses.SESClient()
+      code: `
+        const { SESClient } = require('@aws-sdk/client-ses');
+
+        const client = new SESClient({
+          accessKeyId: process.env.secret,
+          secretAccessKey: process.env.secret,
+          region: 'REGION',
+        });
+      `,
     },
     {
       // mongoose.cconnect()
@@ -374,6 +444,84 @@ ruleTester.run('no-hardcoded-credentials', rule, {
       ],
     },
     {
+      // nodemailer.createTransport()
+      code: `
+            let nodemailer = require('nodemailer');
+
+            nodemailer.createTransport({
+                host: 'secret',
+                port: 587,
+                secure: true,
+                auth: {
+                  type: 'OAuth2',
+                  user: 'secret',
+                  accessToken: 'secret',
+                },
+            });
+      `,
+      errors: [
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+      ],
+    },
+    {
+      // nodemailer.createTransport()
+      code: `
+            let nodemailer = require('nodemailer');
+
+            let transporter = nodemailer.createTransport({
+              host: 'secret',
+              port: 465,
+              secure: true,
+              auth: {
+                type: 'OAuth2',
+                user: 'secret',
+                clientId: 'secret',
+                clientSecret: 'secret',
+                refreshToken: 'secret',
+                accessToken: 'secret',
+                expires: 1484314697598,
+              },
+            });
+      `,
+      errors: [
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+      ],
+    },
+    {
+      // nodemailer.createTransport()
+      code: `
+            let nodemailer = require('nodemailer');
+
+            let transporter = nodemailer.createTransport({
+              host: 'secret',
+              port: 465,
+              secure: true,
+              auth: {
+                type: 'OAuth2',
+                user: 'secret',
+                serviceClient: 'secret',
+                privateKey: 'secret',
+                accessToken: 'secret',
+                expires: 1484314697598,
+              },
+            });
+      `,
+      errors: [
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+        { messageId: 'packageConfigs' },
+      ],
+    },
+    {
       // aws-sdk.config.update()
       code: `
         var AWS = require('aws-sdk');
@@ -404,6 +552,19 @@ ruleTester.run('no-hardcoded-credentials', rule, {
         
         AWS.config.update(configs);
         `,
+      errors: [{ messageId: 'packageConfigs' }, { messageId: 'packageConfigs' }],
+    },
+    {
+      // @aws-sdk/client-ses.SESClient()
+      code: `
+        const { SESClient } = require('@aws-sdk/client-ses');
+
+        const client = new SESClient({
+          accessKeyId: 'secret',
+          secretAccessKey: 'secret',
+          region: 'REGION',
+        });
+      `,
       errors: [{ messageId: 'packageConfigs' }, { messageId: 'packageConfigs' }],
     },
     {
