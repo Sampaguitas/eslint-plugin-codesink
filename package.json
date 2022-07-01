@@ -17,9 +17,8 @@
   "author": "Timothee Desurmont",
   "main": "lib/index.js",
   "scripts": {
-    "start": "node index.js",
     "test": "mocha tests --recursive --reporter dot",
-    "lint": "eslint .  --rulesdir lib/rules",
+    "lint": "eslint . --rulesdir lib/rules",
     "lint-fix": "eslint . --fix --rulesdir lib/rules"
   },
   "dependencies": {
