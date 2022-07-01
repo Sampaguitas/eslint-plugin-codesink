@@ -1,5 +1,5 @@
 /**
- * @fileoverview Detect prototype pollution
+ * @fileoverview Prevent hard-coded credentials
  * @author Timothee Desurmont
  */
 'use strict';
