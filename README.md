@@ -20,7 +20,7 @@ $ npm install eslint-plugin-codesink --save-dev
 
 Add `eslint-plugin-codesink` to the plugins section of your `.eslintrc` configuration file:
 
-```json
+```js
 {
   "plugins": ["eslint-plugin-codesink"]
 }
@@ -28,7 +28,7 @@ Add `eslint-plugin-codesink` to the plugins section of your `.eslintrc` configur
 
 Then configure the rules you want to use under the `rules` section:
 
-```json
+```js
 {
   "rules": {
     "codesink/no-hardcoded-credentials": 2
