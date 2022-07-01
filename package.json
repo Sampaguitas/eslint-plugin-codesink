@@ -1,7 +1,16 @@
 {
   "name": "eslint-plugin-codesink",
-  "version": "0.0.0",
   "description": "Detect most common security vulnerabilities in NodeJS projects",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "mocha tests --recursive --reporter dot",
+    "lint": "eslint . --rulesdir lib/rules",
+    "lint-fix": "eslint . --fix --rulesdir lib/rules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sampaguitas/eslint-plugin-codesink"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",
@@ -16,11 +25,6 @@
   ],
   "author": "Timothee Desurmont",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "mocha tests --recursive --reporter dot",
-    "lint": "eslint . --rulesdir lib/rules",
-    "lint-fix": "eslint . --fix --rulesdir lib/rules"
-  },
   "dependencies": {
     "@typescript-eslint/parser": "^5.27.1",
     "aws-sdk": "^2.1162.0",
