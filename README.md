@@ -4,40 +4,13 @@ Detect most common security vulnerabilities in NodeJS projects
 
 ## Installation
 
-You'll first need to install [ESLint](https://eslint.org/):
-
 ```sh
-npm i eslint --save-dev
-```
-
-Next, install `eslint-plugin-codesink`:
-
-```
-$ npm install eslint-plugin-codesink --save-dev
+npm i eslint eslint-plugin-codesink --save-dev
 ```
 
 ## Usage
 
-Add `eslint-plugin-codesink` to the plugins section of your `.eslintrc` configuration file:
-
-```js
-{
-  "plugins": ["eslint-plugin-codesink"]
-}
-```
-
-Then configure the rules you want to use under the `rules` section:
-
-```js
-{
-  "rules": {
-    "codesink/no-hardcoded-credentials": 2
-    //etc
-  }
-}
-```
-
-Example of `.eslintrc` configuration file:
+Add the following configuration to your `.eslintrc` file:
 
 ```js
 'use strict';
@@ -51,25 +24,41 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
   },
+  plugins: [
+    //this adds codeskink to your list of plugins
+    'eslint-plugin-codesink',
+  ],
+  extends: [
+    //unable all codesink recomented rules
+    'plugin:codesink/recommended',
+  ],
   rules: {
+    //or add specific rules to your project here
     'codesink/no-hardcoded-credentials': 2,
   },
-  plugins: ['eslint-plugin-codesink'],
 };
 ```
 
-If you fork or clone this project, create a `settings.json` file inside the `.vscode` folder located in the root directory of your project and paste the following code:
+## Testing
 
-```json
-{
-  "eslint.options": {
-    "rulePaths": ["lib/rules"]
-  }
-}
+Type the following to test all the rules:
+
+```sh
+npm run test
 ```
 
 ## Supported Rules
 
-| Name                                                                                                                                        | Description                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md) | Prevent hard-coded credentials |
+### `Prevent eval injection`
+
+- Rule: [codesink/no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)
+- Weekness: [CWE-95 - Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')](https://cwe.mitre.org/data/definitions/95.html)
+- Recommended: `true`
+
+---
+
+### `Prevent hard-coded credentials`
+
+- Rule: [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
+- Weakness: [CWE-798 - Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html)
+- Recommended: `true`

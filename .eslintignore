@@ -1,6 +1,7 @@
-lib/rules
-lib/processors
-test/lib/rules
-test/lib/processors
-docs/rules
-docs/processors
+/docs/rules/*.md
+/docs/processors/*.md
+/lib/processors/*.js
+/lib/rules/*.js
+/lib/utils/*.js
+/tests/lib/processors/*.js
+/tests/lib/rules/*.js

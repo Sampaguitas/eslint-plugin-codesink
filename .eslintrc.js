@@ -11,6 +11,7 @@ module.exports = {
   },
   rules: {
     'no-hardcoded-credentials': 'error',
+    'no-eval-injection': 'error',
   },
   overrides: [
     {
