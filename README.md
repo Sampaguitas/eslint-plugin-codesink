@@ -1,6 +1,6 @@
 # eslint-plugin-codesink
 
-Yet another eslint-plugin to detect comon vulnerabilities in NodeJS projects...
+Detect most common security vulnerabilities in NodeJS projects
 
 ## Description
 
@@ -29,15 +29,13 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   plugins: [
-    //this adds codeskink to your list of plugins
+    //add codeskink to your list of plugins
     'eslint-plugin-codesink',
   ],
-  extends: [
-    //unable all codesink recomented rules
-    'plugin:codesink/recommended',
-  ],
   rules: {
-    //or add specific rules to your project here
+    //add specific rules to your project here
+    'codesink/no-eval-injection': 2,
+    'codesink/no-set-timeout-injection': 2,
     'codesink/no-hardcoded-credentials': 2,
   },
 };
@@ -59,7 +57,11 @@ npm run test
 - Weekness: [CWE-95 - Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')](https://cwe.mitre.org/data/definitions/95.html)
 - Recommended: `true`
 
----
+### `Prevent setTimeout and setInterval injection`
+
+- Rule: [codesink/no-set-timeout-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-set-timeout-injection.md)
+- Weekness: [CWE-95 - Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')](https://cwe.mitre.org/data/definitions/95.html)
+- Recommended: `false`
 
 ### `Prevent hard-coded credentials`
 
