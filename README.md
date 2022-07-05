@@ -4,7 +4,7 @@ Yet another eslint-plugin to detect comon vulnerabilities in NodeJS projects...
 
 ## Description
 
-In computing, a sink, or data sink generally refers to the destination of data flow. This plugin not only detects vulnerability sinks but also checks if the source could be exploited by a malisious actor, and if no mitigations have already been put in place by the developer in order to reduce the amount of false positives return by the linter.
+In computing, a sink, or data sink generally refers to the destination of data flow. This plugin not only detects vulnerability sinks but also checks if the source could be exploited by a malisious actor, and if no mitigations have already been put in place by the developer in order to reduce the amount of false positives returned by the linter.
 
 ## Installation
 
