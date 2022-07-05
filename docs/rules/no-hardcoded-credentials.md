@@ -1,21 +1,6 @@
 # Prevent hard-coded credentials (no-hardcoded-credentials)
 
-The rule detects hard-coded credentials that have been left in the code and should be removed before you push your code to a public repository. The rule looks for well known packages used to establish connection to third party cloud services, and ensures that the variables or configuration objects that you pass in the connection methods does not refer Literals (string) stored somewehere in your public files.
-
-| npm packages        | Methods                          |
-| ------------------- | :------------------------------- |
-| aws-sdk             | config.update()                  |
-| @aws-sdk/client-ses | SESClient()                      |
-| firebase/app        | initializeApp()                  |
-| googleapis          | google.blogger()                 |
-| mysql               | createConnection(), createPool() |
-| mongoose            | connect()                        |
-| mssql               | connect()                        |
-| nodemailer          | createTransport()                |
-| oracledb            | getConnection()                  |
-| passport-jwt        | Strategy()                       |
-| pg                  | Pool(), Client()                 |
-| tedious             | Connection()                     |
+The rule detects hard-coded credentials that have been left in the code and should be removed before you push your code to a public repository. The rule looks for well known packages used to establish connection to third party cloud services, and ensures that the variables or configuration objects that you pass in the connection methods do not refer to Literals stored somewehere in your public files.
 
 ## Demonstrative Examples
 
