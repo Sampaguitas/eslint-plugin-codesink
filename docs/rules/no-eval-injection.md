@@ -1,4 +1,4 @@
-# Prevent eval injection (no-eval-injection)
+# Prevent eval, exec, spawn and new Function injection (no-eval-injection)
 
 The rule detects user controlled inputs passed as parameters inside a `new Function()` constructor, `eval()` function, `exec()` and `spawn()` child processes. A bad actor could use it to run arbitrary code (Remote Code Execution).
 

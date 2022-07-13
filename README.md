@@ -2,10 +2,6 @@
 
 Detect most common security vulnerabilities in NodeJS projects
 
-## Description
-
-In computing, a sink, or data sink generally refers to the destination of data flow. This plugin not only detects vulnerability sinks but also checks if the source could be exploited by a malisious actor, and if no mitigations have already been put in place by the developer in order to reduce the amount of false positives returned by the linter.
-
 ## Installation
 
 ```sh
@@ -51,20 +47,17 @@ npm run test
 
 ## Supported Rules
 
-### `Prevent eval injection`
+### `Prevent eval, exec and spawn injection`
 
 - Rule: [codesink/no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)
-- Weekness: [CWE-95 - Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')](https://cwe.mitre.org/data/definitions/95.html)
 - Recommended: `true`
 
 ### `Prevent setTimeout and setInterval injection`
 
 - Rule: [codesink/no-set-timeout-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-set-timeout-injection.md)
-- Weekness: [CWE-95 - Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')](https://cwe.mitre.org/data/definitions/95.html)
 - Recommended: `false`
 
 ### `Prevent hard-coded credentials`
 
 - Rule: [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
-- Weakness: [CWE-798 - Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html)
 - Recommended: `true`
