@@ -31,6 +31,7 @@ module.exports = {
   rules: {
     //add specific rules to your project here
     'codesink/no-eval-injection': 2,
+    'codesink/no-evil-regex': 2,
     'codesink/no-set-timeout-injection': 2,
     'codesink/no-hardcoded-credentials': 2,
   },
@@ -46,6 +47,11 @@ npm run test
 ```
 
 ## Supported Rules
+
+### `Prevent evil Regex`
+
+- Rule: [codesink/no-evil-regex](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-evil-regex.md)
+- Recommended: `true`
 
 ### `Prevent eval, exec and spawn injection`
 

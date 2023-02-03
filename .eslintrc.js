@@ -10,9 +10,10 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'no-set-timeout-injection': 'error',
+    'no-evil-regex': 'error',
     'no-hardcoded-credentials': 'error',
     'no-eval-injection': 'error',
-    'no-set-timeout-injection': 'error',
   },
   overrides: [
     {
