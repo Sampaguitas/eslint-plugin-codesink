@@ -34,10 +34,11 @@ module.exports = {
   ],
   rules: {
     //add specific rules to your project here
-    'codesink/no-eval-injection': 2,
-    'codesink/no-evil-regex': 2,
-    'codesink/no-set-timeout-injection': 2,
-    'codesink/no-hardcoded-credentials': 2,
+    'no-eval-injection': 2,
+    'no-evil-regex': 2,
+    'no-hardcoded-credentials': 2,
+    'no-regex-injection': 2,
+    'no-set-timeout-injection': 2,
   },
 };
 ```
@@ -69,6 +70,11 @@ npm run test
 ### `Prevent evil Regex`
 
 - Rule: [codesink/no-evil-regex](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-evil-regex.md)
+- Recommended: `true`
+
+### `Prevent Regex injection`
+
+- Rule: [codesink/no-regex-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-regex-injection.md)
 - Recommended: `true`
 
 ### `Prevent hard-coded credentials`
