@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent Regex Injection
+ * @fileoverview Prevent Path Traversal
  * @author Timothee Desurmont
  */
 'use strict';
@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 var RuleTester = require('eslint').RuleTester;
-var rule = require('../../../lib/rules/no-regex-injection.js');
+var rule = require('../../../lib/rules/no-path-traversal.js');
 
 //------------------------------------------------------------------------------
 // Tests
@@ -32,30 +32,20 @@ var ruleTester = new RuleTester({
   ],
 });
 
-ruleTester.run('no-regex-injection', rule, {
+ruleTester.run('no-path-traversal', rule, {
   valid: [
     {
       code: `
-        function testMatch(input) {
-          let regex = /foo/;
-          return input.match(regex);
-        }
-        
-        let matches = testMatch('aaaaaaaaaaaaaaa!');
+      require('./locale/foo.js');
         `,
     },
   ],
   invalid: [
     {
       code: `
-        function testMatch(pattern, input) {
-          let regex = new RegExp(pattern);
-          return input.match(regex);
-        }
-        
-        let matches = testMatch(/(a+)+/, 'aaaaaaaaaaaaaaa!');
-        `,
-      errors: [{ messageId: 'regexInjection' }],
+        require('./locale/' + name);
+      `,
+      errors: [{ messageId: 'pathTraversal' }],
     },
   ],
 });

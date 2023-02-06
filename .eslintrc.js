@@ -13,6 +13,7 @@ module.exports = {
     'no-eval-injection': 'error',
     'no-evil-regex': 'error',
     'no-hardcoded-credentials': 'error',
+    'no-path-traversal': 'error',
     'no-regex-injection': 'error',
     'no-set-timeout-injection': 'error',
   },

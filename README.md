@@ -37,6 +37,7 @@ module.exports = {
     'no-eval-injection': 2,
     'no-evil-regex': 2,
     'no-hardcoded-credentials': 2,
+    'no-path-traversal': 2,
     'no-regex-injection': 2,
     'no-set-timeout-injection': 2,
   },
@@ -66,6 +67,11 @@ npm run test
 ```
 
 ## Supported Rules
+
+### `Prevent Path Traversal`
+
+- Rule: [codesink/no-path-traversal](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-path-traversal.md)
+- Recommended: `true`
 
 ### `Prevent evil Regex`
 
