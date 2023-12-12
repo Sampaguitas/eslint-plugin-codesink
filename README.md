@@ -31,6 +31,7 @@ module.exports = {
   plugins: ['codesink'],
   rules: {
     //add specific rules to your project here
+    'codesink/no-open-redirect': 2,
     'codesink/no-dom-xss': 2,
     'codesink/no-eval-injection': 2,
     'codesink/no-evil-regex': 2,
@@ -58,7 +59,12 @@ npm run lint
 
 ## Supported Rules
 
-### `Prevent Dom XSS`
+### `Prevent DOM-based open redirect`
+
+- Rule: [codesink/no-open-redirect](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-open-redirect.md)
+- Recommended: `true`
+
+### `Prevent DOM-based XSS`
 
 - Rule: [codesink/no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)
 - Recommended: `true`
