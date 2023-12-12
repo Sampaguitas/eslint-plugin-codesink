@@ -34,6 +34,7 @@ module.exports = {
   ],
   rules: {
     //add specific rules to your project here
+    'no-dom-xss': 2,
     'no-eval-injection': 2,
     'no-evil-regex': 2,
     'no-hardcoded-credentials': 2,
@@ -67,6 +68,11 @@ npm run test
 ```
 
 ## Supported Rules
+
+### `Prevent Dom XSS`
+
+- Rule: [codesink/no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)
+- Recommended: `true`
 
 ### `Prevent Path Traversal`
 
