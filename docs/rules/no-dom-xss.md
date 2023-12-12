@@ -1,6 +1,6 @@
-# Prevent eval, exec, spawn and new Function injection (no-dom-xss)
+# Prevent DOM-based XSS (no-dom-xss)
 
-The rule detects the use of `document.write()` and `document.writeln()` methods. which could be used by a malicious actor to inject HTML tags or a script element and execute javascript code.
+The rule detects the presence of variables inside `document.write()` and `document.writeln()` or being assigned to `document.domain`, `element.innerHTML`, `element.outerHTML`, `element.insertAdjacentHTML` and `element.onevent` sinks. User countrol inputs can potentially lead to DOM-XSS. This vulnerability can be mitigated by encoding output data, validate input on arrival, using content security policy (CSP).
 
 ## Demonstrative Examples
 
@@ -17,8 +17,6 @@ Examples of **incorrect** code for this rule:
     }
 </script>
 ```
-
-This vulnerability can be mitigated by encoding output data, validate input on arrival, using content security policy (CSP).
 
 ## Further Reading
 
