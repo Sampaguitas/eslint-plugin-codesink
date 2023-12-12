@@ -28,19 +28,16 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: [
-    //add codeskink to your list of plugins
-    'eslint-plugin-codesink',
-  ],
+  plugins: ['codesink'],
   rules: {
     //add specific rules to your project here
-    'no-dom-xss': 2,
-    'no-eval-injection': 2,
-    'no-evil-regex': 2,
-    'no-hardcoded-credentials': 2,
-    'no-path-traversal': 2,
-    'no-regex-injection': 2,
-    'no-set-timeout-injection': 2,
+    'codesink/no-dom-xss': 2,
+    'codesink/no-eval-injection': 2,
+    'codesink/no-evil-regex': 2,
+    'codesink/no-hardcoded-credentials': 2,
+    'codesink/no-path-traversal': 2,
+    'codesink/no-regex-injection': 2,
+    'codesink/no-set-timeout-injection': 2,
   },
 };
 ```
@@ -57,14 +54,6 @@ To run eslint from your terminal:
 
 ```sh
 npm run lint
-```
-
-## Testing
-
-Type the following to test all the rules:
-
-```sh
-npm run test
 ```
 
 ## Supported Rules
