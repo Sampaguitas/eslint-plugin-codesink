@@ -6,10 +6,10 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
   },
+  parser: '@typescript-eslint/parser',
   plugins: ['html', '@typescript-eslint'],
   rules: {
     'no-dom-xss': 'error',

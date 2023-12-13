@@ -5,7 +5,10 @@ Identifies code sinks in `javascript`, `typescript`, and `HTML` files that can p
 ## Installation
 
 ```sh
-npm i eslint eslint-plugin-codesink --save-dev
+# minimal installation:
+npm i eslint eslint-plugin-codesink
+# for html and typescript support:
+npm install eslint-plugin-html typescript@4.1.6 @typescript-eslint/parser @typescript-eslint/eslint-plugin@5.0.0-alpha.42
 ```
 
 ## Usage
@@ -28,7 +31,8 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['codesink'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['codesink', 'html', '@typescript-eslint'],
   rules: {
     //add specific rules to your project here
     'codesink/no-open-redirect': 2,
