@@ -1,6 +1,6 @@
 # eslint-plugin-codesink
 
-Detect most common security vulnerabilities in NodeJS projects
+Identifies code sinks in `javascript`, `typescript`, and `HTML` files that can potentially lead to web application vulnerabilities.
 
 ## Installation
 
