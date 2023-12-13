@@ -1,6 +1,6 @@
 # Prevent DOM-based XSS (no-dom-xss)
 
-The rule detects the presence of variables inside `document.write()` and `document.writeln()` or being assigned to `document.domain`, `element.innerHTML`, `element.outerHTML`, `element.insertAdjacentHTML` and `element.onevent` sinks. User countrol inputs can potentially lead to DOM-XSS. This vulnerability can be mitigated by encoding output data, validate input on arrival, using content security policy (CSP).
+The rule detects the presence of variables inside `document.write()` and `document.writeln()` or being assigned to `document.domain`, `element.innerHTML`, `element.outerHTML`, `element.insertAdjacentHTML` and `element.onevent` sinks. User countrol inputs can potentially lead to DOM-XSS.
 
 ## Demonstrative Examples
 

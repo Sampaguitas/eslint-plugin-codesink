@@ -49,17 +49,7 @@ ruleTester.run('no-dom-xss', rule, {
     },
     {
       code: `
-        const insert = document.querySelector('#insert');
-        insert.addEventListener('click', () => {
-          const subject = document.querySelector('#subject');
-          const positionSelect = document.querySelector('#position');
-          subject.insertAdjacentHTML(positionSelect.value, toto);
-        });
-        
-        const reset = document.querySelector('#reset');
-        reset.addEventListener('click', () => {
-          document.location.reload();
-        });
+        subject.insertAdjacentHTML(positionSelect.value, variable);
         `,
       errors: [{ messageId: 'domXss' }],
     },

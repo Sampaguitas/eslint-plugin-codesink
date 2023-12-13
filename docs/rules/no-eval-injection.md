@@ -1,6 +1,6 @@
 # Prevent eval, exec, spawn and new Function injection (no-eval-injection)
 
-The rule detects user controlled inputs passed as parameters inside a `new Function()` constructor, `eval()` function, `exec()` and `spawn()` child processes. A bad actor could use it to run arbitrary code (Remote Code Execution).
+The rule detects the presence of variables inside `new Function()`, `eval()`, `exec()`, `spawn()` sinks. A bad actor could use it to run arbitrary code (Remote Code Execution). User countrol inputs can potentially lead to Code Injection.
 
 ## Demonstrative Examples
 
@@ -17,13 +17,6 @@ function resolveJavascriptFunction(object) {
     return NIL;
   }
 }
-```
-
-Examples of **correct** code for this rule:
-
-```js
-const addition = new Function('a', 'b', 'return a+b');
-addition(1, 1);
 ```
 
 ## Further Reading

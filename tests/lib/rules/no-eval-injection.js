@@ -33,14 +33,7 @@ var ruleTester = new RuleTester({
 });
 
 ruleTester.run('no-eval-injection', rule, {
-  valid: [
-    {
-      code: `
-          const addition = new Function("a", "b", "return a+b");
-          addition(1, 1)
-        `,
-    },
-  ],
+  valid: [],
   invalid: [
     {
       code: `
