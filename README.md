@@ -41,14 +41,14 @@ module.exports = {
   plugins: ['codesink', 'html', '@typescript-eslint'],
   rules: {
     //add specific rules to your project here
-    'codesink/no-open-redirect': 2,
-    'codesink/no-dom-xss': 2,
-    'codesink/no-eval-injection': 2,
-    'codesink/no-evil-regex': 2,
-    'codesink/no-hardcoded-credentials': 2,
-    'codesink/no-path-traversal': 2,
-    'codesink/no-regex-injection': 2,
-    'codesink/no-set-timeout-injection': 2,
+    'codesink/no-open-redirect': 'warn',
+    'codesink/no-dom-xss': 'warn',
+    'codesink/no-eval-injection': 'warn',
+    'codesink/no-evil-regex': 'warn',
+    'codesink/no-hardcoded-credentials': 'warn',
+    'codesink/no-path-traversal': 'warn',
+    'codesink/no-regex-injection': 'warn',
+    'codesink/no-set-timeout-injection': 'warn',
   },
 };
 ```

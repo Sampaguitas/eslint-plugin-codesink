@@ -12,14 +12,14 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['html', '@typescript-eslint'],
   rules: {
-    'no-dom-xss': 'error',
-    'no-eval-injection': 'error',
-    'no-evil-regex': 'error',
-    'no-hardcoded-credentials': 'error',
-    'no-open-redirect': 'error',
-    'no-path-traversal': 'error',
-    'no-regex-injection': 'error',
-    'no-set-timeout-injection': 'error',
+    'no-dom-xss': 'warn',
+    'no-eval-injection': 'warn',
+    'no-evil-regex': 'warn',
+    'no-hardcoded-credentials': 'warn',
+    'no-open-redirect': 'warn',
+    'no-path-traversal': 'warn',
+    'no-regex-injection': 'warn',
+    'no-set-timeout-injection': 'warn',
   },
   overrides: [
     {

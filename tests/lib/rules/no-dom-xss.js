@@ -49,7 +49,41 @@ ruleTester.run('no-dom-xss', rule, {
     },
     {
       code: `
-        subject.insertAdjacentHTML(positionSelect.value, variable);
+        function trackSearch(query) {
+          document.writeln('<img src="/resources/images/tracker.gif?searchTerms=' + query + '">');
+        }
+        var query = (new URLSearchParams(window.location.search)).get('search');
+          if (query) {
+            trackSearch(query);
+        }
+      `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          list.insertAdjacentHTML('beforebegin', controllableSource);
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          document.domain = controllableSource;
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          element.innerHTML = controllableSource;
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          element.outerHTML = controllableSource;
         `,
       errors: [{ messageId: 'domXss' }],
     },
