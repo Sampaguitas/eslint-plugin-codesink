@@ -41,14 +41,15 @@ module.exports = {
   plugins: ['codesink', 'html', '@typescript-eslint'],
   rules: {
     //add specific rules to your project here
-    'codesink/no-open-redirect': 'warn',
     'codesink/no-dom-xss': 'warn',
+    'codesink/no-open-redirect': 'warn',
     'codesink/no-eval-injection': 'warn',
-    'codesink/no-evil-regex': 'warn',
-    'codesink/no-hardcoded-credentials': 'warn',
+    'codesink/no-cookie-manipulation': 'warn',
+    'codesink/no-domain-manipulation': 'warn',
     'codesink/no-path-traversal': 'warn',
+    'codesink/no-evil-regex': 'warn',
     'codesink/no-regex-injection': 'warn',
-    'codesink/no-set-timeout-injection': 'warn',
+    'codesink/no-hardcoded-credentials': 'warn',
   },
 };
 ```
@@ -69,14 +70,29 @@ npm run lint
 
 ## Supported Rules
 
+### `Prevent DOM-based XSS`
+
+- Rule: [codesink/no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)
+- Recommended: `true`
+
 ### `Prevent DOM-based open redirect`
 
 - Rule: [codesink/no-open-redirect](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-open-redirect.md)
 - Recommended: `true`
 
-### `Prevent DOM-based XSS`
+### `Prevent DOM-based JavaScript injection`
 
-- Rule: [codesink/no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)
+- Rule: [codesink/no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)
+- Recommended: `true`
+
+### `Prevent DOM-based Cookie Manipulation`
+
+- Rule: [codesink/no-cookie-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-cookie-manipulation.md)
+- Recommended: `true`
+
+### `Prevent DOM-based document-domain manipulation`
+
+- Rule: [codesink/no-document-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-document-manipulation.md)
 - Recommended: `true`
 
 ### `Prevent Path Traversal`
@@ -98,13 +114,3 @@ npm run lint
 
 - Rule: [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
 - Recommended: `true`
-
-### `Prevent eval, exec and spawn injection`
-
-- Rule: [codesink/no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)
-- Recommended: `true`
-
-### `Prevent setTimeout and setInterval injection`
-
-- Rule: [codesink/no-set-timeout-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-set-timeout-injection.md)
-- Recommended: `false`

@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-codesink",
   "description": "Detect most common security vulnerabilities in NodeJS projects",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "scripts": {
     "test": "mocha tests --recursive --reporter dot",
     "lint": "eslint . --rulesdir lib/rules",

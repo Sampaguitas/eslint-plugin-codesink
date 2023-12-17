@@ -87,5 +87,50 @@ ruleTester.run('no-dom-xss', rule, {
         `,
       errors: [{ messageId: 'domXss' }],
     },
+    {
+      code: `
+          $(function () {
+            $('#backLink').attr('href', new URLSearchParams(window.location.search).get('returnUrl'));
+          });
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          $(window).on('hashchange', function () {
+            var element = $(location.hash);
+            element[0].scrollIntoView();
+          });
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          $('.inner').append(controllableSource);
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          $('img').after(controllableSource);
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          $('#box').animate(controllableSource);
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
+    {
+      code: `
+          let controllableSource = location.search;
+          $.parseHTML(controllableSource);
+        `,
+      errors: [{ messageId: 'domXss' }],
+    },
   ],
 });

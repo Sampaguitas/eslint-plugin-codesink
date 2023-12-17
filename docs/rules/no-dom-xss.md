@@ -1,6 +1,10 @@
 # Prevent DOM-based XSS (no-dom-xss)
 
-The rule detects the presence of variables inside `document.write()` and `document.writeln()` or being assigned to `document.domain`, `element.innerHTML`, `element.outerHTML`, `element.insertAdjacentHTML` and `element.onevent` sinks as well as jQuery `insertAfter()`, `insertBefore()`, `before()`, `html()`, `prepend()`, `replaceAll()`, `replaceWith()`, `wrap()`, `wrapInner()`, `wrapAll()`, `has()`, `constructor()`, `init()`, `index()`, `jQuery.parseHTML()`, `$.parseHTML()` sinks. User countrol inputs can potentially lead to DOM-XSS.
+DOM-based XSS vulnerabilities arise when JavaScript takes data from an attacker-controllable source, and passes it to a sink that supports dynamic code execution.
+
+This rule detects the presence of variables inside `document.write()` and `document.writeln()` or being assigned to `document.domain`, `element.innerHTML`, `element.outerHTML`, `element.insertAdjacentHTML` and `element.onevent` sinks.
+
+This rule also detects the presence of variables inside jQuery `insertAfter()`, `insertBefore()`, `before()`, `html()`, `prepend()`, `replaceAll()`, `replaceWith()`, `wrap()`, `wrapInner()`, `wrapAll()`, `has()`, `constructor()`, `init()`, `index()`, `$.parseHTML()` sinks.
 
 ## Demonstrative Examples
 
@@ -17,8 +21,6 @@ Examples of **incorrect** code for this rule:
     }
 </script>
 ```
-
-DOM-based XSS vulnerabilities usually arise when JavaScript takes data from an attacker-controllable source, and passes it to a sink that supports dynamic code execution.
 
 ## Further Reading
 

@@ -13,13 +13,14 @@ module.exports = {
   plugins: ['html', '@typescript-eslint'],
   rules: {
     'no-dom-xss': 'warn',
-    'no-eval-injection': 'warn',
-    'no-evil-regex': 'warn',
-    'no-hardcoded-credentials': 'warn',
     'no-open-redirect': 'warn',
+    'no-eval-injection': 'warn',
+    'no-cookie-manipulation': 'warn',
+    'no-domain-manipulation': 'warn',
     'no-path-traversal': 'warn',
+    'no-evil-regex': 'warn',
     'no-regex-injection': 'warn',
-    'no-set-timeout-injection': 'warn',
+    'no-hardcoded-credentials': 'warn',
   },
   overrides: [
     {

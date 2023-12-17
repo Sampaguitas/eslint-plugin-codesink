@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent setTimeout() and setInterval() injection
+ * @fileoverview Prevent DOM-based document-domain manipulation (no-domain-manipulation)
  * @author Timothee Desurmont
  */
 'use strict';
@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 var RuleTester = require('eslint').RuleTester;
-var rule = require('../../../lib/rules/no-set-timeout-injection.js');
+var rule = require('../../../lib/rules/no-domain-manipulation.js');
 
 //------------------------------------------------------------------------------
 // Tests
@@ -32,30 +32,14 @@ var ruleTester = new RuleTester({
   ],
 });
 
-ruleTester.run('no-set-timeout-injection', rule, {
-  valid: [
-    {
-      code: `
-          let crontrolledInput = 'console.log(1+1)';
-
-          function resolveJavascriptFunction(userControlledInput) {
-            setTimeout(function () {
-              return crontrolledInput;
-            }, 1000);
-          }
-        `,
-    },
-  ],
+ruleTester.run('no-domain-manipulation', rule, {
+  valid: [],
   invalid: [
     {
       code: `
-        let crontrolledInput = 'console.log(1+1)';
-
-        function resolveJavascriptFunction(userControlledInput) {
-          return setTimeout(userControlledInput, 1000);
-        }
+          document.domain = location.hash.slice(1);
         `,
-      errors: [{ messageId: 'refInjection' }],
+      errors: [{ messageId: 'domainManipulation' }],
     },
   ],
 });
