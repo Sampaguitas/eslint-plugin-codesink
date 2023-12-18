@@ -17,6 +17,7 @@ module.exports = {
     'no-eval-injection': 'warn',
     'no-cookie-manipulation': 'warn',
     'no-domain-manipulation': 'warn',
+    'no-websocket-url-poisoning': 'warn',
     'no-path-traversal': 'warn',
     'no-evil-regex': 'warn',
     'no-regex-injection': 'warn',

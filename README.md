@@ -2,11 +2,18 @@
 
 Detects common vulnerability sinks in `javascript`, `typescript`, and `HTML` files that can potentially lead to web application vulnerabilities.
 
-This plugin may give you some leads while working on bug bounty programs but will produce a lot of false positives. You first need to verify if user contolled data (source) can be passed to the sink. You then need to manually test your findings.
+You first need to verify if user contolled data (source) can be passed to the sink, then manually test your findings.
 
-Common sources for DOM-based vulnerabilities are `document.URL`, `document.documentURI`, `document.URLUnencoded`, `document.baseURI`, `location`, `document.cookie`, `document.referrer`, `window.name`, `history.pushState`, `history.replaceState`, `localStorage`, `sessionStorage`, `IndexedDB`, `mozIndexedDB`, `webkitIndexedDB`, `msIndexedDB`, `Database`. In NPM packages, sources can be any arguments passed to the imported functions or methods, and for server side vulnerabilities `req.body`, `req.param`, `req.query`, `req.headers`, `req.cookies`,
+### Common sources
 
-Use a burp suite Extension such as JS miner (or the Debugger panel in your web developper tools) to extract all HTML and JS files from your target, import the dump in the root folder of your project then execute `npm run lint` from your command line. You can also test other NPM packages by downloading the source code from Github and saving it the the root folder of your project. Do not install the packages that you whant to test for vulnerabilities as eslint will ignore all files located in your node_modules folder.
+<ins>DOM-based vulnerabilities</ins>
+`document.URL`, `document.documentURI`, `document.URLUnencoded`, `document.baseURI`, `location`, `document.cookie`, `document.referrer`, `window.name`, `history.pushState`, `history.replaceState`, `localStorage`, `sessionStorage`, `IndexedDB`, `mozIndexedDB`, `webkitIndexedDB`, `msIndexedDB`, `Database`.
+
+<ins>Server-side vulnerabilities</ins>
+`req.body`, `req.param`, `req.query`, `req.headers`, `req.cookies`.
+
+<ins>In NPM packages</ins>
+sources can be any arguments passed to the imported functions or methods.
 
 ## Installation
 
@@ -46,6 +53,7 @@ module.exports = {
     'codesink/no-eval-injection': 'warn',
     'codesink/no-cookie-manipulation': 'warn',
     'codesink/no-domain-manipulation': 'warn',
+    'codesink/no-websocket-url-poisoning': 'warn',
     'codesink/no-path-traversal': 'warn',
     'codesink/no-evil-regex': 'warn',
     'codesink/no-regex-injection': 'warn',
