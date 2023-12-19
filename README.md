@@ -54,6 +54,7 @@ module.exports = {
     'codesink/no-cookie-manipulation': 'warn',
     'codesink/no-domain-manipulation': 'warn',
     'codesink/no-websocket-url-poisoning': 'warn',
+    'codesink/no-link-manipulation': 'warn',
     'codesink/no-path-traversal': 'warn',
     'codesink/no-evil-regex': 'warn',
     'codesink/no-regex-injection': 'warn',
@@ -101,6 +102,16 @@ npm run lint
 ### `Prevent DOM-based document-domain manipulation`
 
 - Rule: [codesink/no-document-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-document-manipulation.md)
+- Recommended: `true`
+
+### `Prevent DOM-based WebSocket-URL poisoning`
+
+- Rule: [codesink/websocket-url-poisoning](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/websocket-url-poisoning.md)
+- Recommended: `true`
+
+### `Prevent DOM-based link manipulation`
+
+- Rule: [codesink/no-link-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-link-manipulation.md)
 - Recommended: `true`
 
 ### `Prevent Path Traversal`
