@@ -1,4 +1,4 @@
-# Prevent hard-coded credentials (no-hardcoded-credentials)
+# Detect hard-coded credentials (no-hardcoded-credentials)
 
 The rule detects hard-coded credentials that have been left in the code and should be removed before you push your code to a public repository. The rule looks for well known packages used to establish connection to third party cloud services, and ensures that the variables or configuration objects that you pass in the connection methods do not refer to Literals stored somewehere in your public files.
 

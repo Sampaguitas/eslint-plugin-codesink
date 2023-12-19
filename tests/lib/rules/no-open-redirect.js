@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent DOM-based open redirect (no-open-redirect)
+ * @fileoverview Detect DOM-based open redirect sinks (no-open-redirect)
  * @author Timothee Desurmont
  */
 'use strict';

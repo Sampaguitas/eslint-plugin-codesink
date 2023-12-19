@@ -19,6 +19,7 @@ module.exports = {
     'no-domain-manipulation': 'warn',
     'no-websocket-url-poisoning': 'warn',
     'no-link-manipulation': 'warn',
+    'no-message-manipulation': 'warn',
     'no-path-traversal': 'warn',
     'no-evil-regex': 'warn',
     'no-regex-injection': 'warn',

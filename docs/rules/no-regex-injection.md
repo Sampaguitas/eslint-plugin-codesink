@@ -1,4 +1,4 @@
-# Prevent Regex Injection (no-regex-injection)
+# Detect Regex Injection (no-regex-injection)
 
 The rule detects possible user controlled input inside a RegExp Constructor.
 

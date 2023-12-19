@@ -1,5 +1,5 @@
 /**
- * @fileoverview Detect DOM-based Cookie Manipulation sinks (no-cookie-manipulation)
+ * @fileoverview Detect Web message manipulation sinks (no-message-manipulation)
  * @author Timothee Desurmont
  */
 'use strict';
@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 var RuleTester = require('eslint').RuleTester;
-var rule = require('../../../lib/rules/no-cookie-manipulation.js');
+var rule = require('../../../lib/rules/no-message-manipulation.js');
 
 //------------------------------------------------------------------------------
 // Tests
@@ -32,14 +32,14 @@ var ruleTester = new RuleTester({
   ],
 });
 
-ruleTester.run('no-cookie-manipulation', rule, {
+ruleTester.run('no-message-manipulation', rule, {
   valid: [],
   invalid: [
     {
       code: `
-      document.cookie = 'cookieName='+location.hash.slice(1);
+          window.postMessage(userControlledVariable, '*');
         `,
-      errors: [{ messageId: 'cookieManipulation' }],
+      errors: [{ messageId: 'default' }],
     },
   ],
 });

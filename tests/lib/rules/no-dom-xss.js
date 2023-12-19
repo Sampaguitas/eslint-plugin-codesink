@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent DOM-based XSS (no-dom-xss)
+ * @fileoverview Detect DOM-based XSS sinks (no-dom-xss)
  * @author Timothee Desurmont
  */
 'use strict';

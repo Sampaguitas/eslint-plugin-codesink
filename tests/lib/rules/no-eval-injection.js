@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent DOM-based JavaScript injection (no-eval-injection)
+ * @fileoverview Detect DOM-based JavaScript injection sinks (no-eval-injection)
  * @author Timothee Desurmont
  */
 'use strict';

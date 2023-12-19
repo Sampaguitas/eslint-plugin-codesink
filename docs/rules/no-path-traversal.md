@@ -1,4 +1,4 @@
-# Prevent Path Traversal (no-path-traversal)
+# Detect Path Traversal (no-path-traversal)
 
 The rule detects possible user controlled input inside require, import, readFileSync, readdirSync and statSync
 

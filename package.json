@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-codesink",
-  "description": "Detect most common security vulnerabilities in NodeJS projects",
+  "description": "Detect common javascript sinks that lead to web application vulnerabilities.",
   "version": "1.0.10",
   "scripts": {
     "test": "mocha tests --recursive --reporter dot",

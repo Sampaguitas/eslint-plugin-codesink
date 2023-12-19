@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent DOM-based link manipulation (no-link-manipulation)
+ * @fileoverview Detect DOM-based link manipulation sinks (no-link-manipulation)
  * @author Timothee Desurmont
  */
 'use strict';

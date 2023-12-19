@@ -1,19 +1,6 @@
 # eslint-plugin-codesink
 
-Detects common vulnerability sinks in `javascript`, `typescript`, and `HTML` files that can potentially lead to web application vulnerabilities.
-
-You first need to verify if user contolled data (source) can be passed to the sink, then manually test your findings.
-
-### Common sources
-
-<ins>DOM-based vulnerabilities</ins>
-`document.URL`, `document.documentURI`, `document.URLUnencoded`, `document.baseURI`, `location`, `document.cookie`, `document.referrer`, `window.name`, `history.pushState`, `history.replaceState`, `localStorage`, `sessionStorage`, `IndexedDB`, `mozIndexedDB`, `webkitIndexedDB`, `msIndexedDB`, `Database`.
-
-<ins>Server-side vulnerabilities</ins>
-`req.body`, `req.param`, `req.query`, `req.headers`, `req.cookies`.
-
-<ins>In NPM packages</ins>
-sources can be any arguments passed to the imported functions or methods.
+Detect common javascript sinks that lead to web application vulnerabilities.
 
 ## Installation
 
@@ -55,6 +42,7 @@ module.exports = {
     'codesink/no-domain-manipulation': 'warn',
     'codesink/no-websocket-url-poisoning': 'warn',
     'codesink/no-link-manipulation': 'warn',
+    'codesink/no-message-manipulation': 'warn',
     'codesink/no-path-traversal': 'warn',
     'codesink/no-evil-regex': 'warn',
     'codesink/no-regex-injection': 'warn',
@@ -79,57 +67,62 @@ npm run lint
 
 ## Supported Rules
 
-### `Prevent DOM-based XSS`
+### `Detect DOM-based XSS`
 
 - Rule: [codesink/no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)
 - Recommended: `true`
 
-### `Prevent DOM-based open redirect`
+### `Detect DOM-based open redirect`
 
 - Rule: [codesink/no-open-redirect](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-open-redirect.md)
 - Recommended: `true`
 
-### `Prevent DOM-based JavaScript injection`
+### `Detect DOM-based JavaScript injection`
 
 - Rule: [codesink/no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)
 - Recommended: `true`
 
-### `Prevent DOM-based Cookie Manipulation`
+### `Detect DOM-based Cookie Manipulation`
 
 - Rule: [codesink/no-cookie-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-cookie-manipulation.md)
 - Recommended: `true`
 
-### `Prevent DOM-based document-domain manipulation`
+### `Detect DOM-based document-domain manipulation`
 
 - Rule: [codesink/no-document-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-document-manipulation.md)
 - Recommended: `true`
 
-### `Prevent DOM-based WebSocket-URL poisoning`
+### `Detect DOM-based WebSocket-URL poisoning`
 
 - Rule: [codesink/websocket-url-poisoning](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/websocket-url-poisoning.md)
 - Recommended: `true`
 
-### `Prevent DOM-based link manipulation`
+### `Detect DOM-based link manipulation`
 
 - Rule: [codesink/no-link-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-link-manipulation.md)
 - Recommended: `true`
 
-### `Prevent Path Traversal`
+### `Detect Web message manipulation sinks`
+
+- Rule: [codesink/no-message-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-message-manipulation.md)
+- Recommended: `true`
+
+### `Detect Path Traversal`
 
 - Rule: [codesink/no-path-traversal](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-path-traversal.md)
 - Recommended: `true`
 
-### `Prevent evil Regex`
+### `Detect evil Regex`
 
 - Rule: [codesink/no-evil-regex](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-evil-regex.md)
 - Recommended: `true`
 
-### `Prevent Regex injection`
+### `Detect Regex injection`
 
 - Rule: [codesink/no-regex-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-regex-injection.md)
 - Recommended: `true`
 
-### `Prevent hard-coded credentials`
+### `Detect hard-coded credentials`
 
 - Rule: [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
 - Recommended: `true`

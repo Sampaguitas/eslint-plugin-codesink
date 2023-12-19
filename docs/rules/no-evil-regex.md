@@ -1,4 +1,4 @@
-# Prevent Evil Regex (no-eval-injection)
+# Detect Evil Regex (no-eval-injection)
 
 The rule detects possible Evil Regex. A Regex pattern is called Evil Regex if it can get stuck on crafted input.
 

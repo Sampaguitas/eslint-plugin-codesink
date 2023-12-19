@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent DOM-based WebSocket-URL poisoning (websocket-url-poisoning)
+ * @fileoverview Detect DOM-based WebSocket-URL poisoning sinks (websocket-url-poisoning)
  * @author Timothee Desurmont
  */
 'use strict';

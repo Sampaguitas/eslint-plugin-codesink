@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent hard-coded credentials
+ * @fileoverview Detect hard-coded credentials
  * @author Timothee Desurmont
  */
 'use strict';

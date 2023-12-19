@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent Path Traversal
+ * @fileoverview Detect Path Traversal
  * @author Timothee Desurmont
  */
 'use strict';

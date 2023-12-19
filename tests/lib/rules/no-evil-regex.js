@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent evil Regex
+ * @fileoverview Detect evil Regex
  * @author Timothee Desurmont
  */
 'use strict';

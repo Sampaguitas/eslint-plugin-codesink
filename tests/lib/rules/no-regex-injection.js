@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent Regex Injection
+ * @fileoverview Detect Regex Injection
  * @author Timothee Desurmont
  */
 'use strict';

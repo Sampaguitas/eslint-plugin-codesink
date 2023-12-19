@@ -1,5 +1,5 @@
 /**
- * @fileoverview Prevent DOM-based document-domain manipulation (no-domain-manipulation)
+ * @fileoverview Detect DOM-based document-domain manipulation sinks (no-domain-manipulation)
  * @author Timothee Desurmont
  */
 'use strict';
