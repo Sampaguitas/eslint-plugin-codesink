@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-codesink",
   "description": "Detect common javascript sinks that lead to web application vulnerabilities.",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "scripts": {
     "test": "mocha tests --recursive --reporter dot",
     "lint": "eslint . --rulesdir lib/rules",

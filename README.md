@@ -67,62 +67,17 @@ npm run lint
 
 ## Supported Rules
 
-### `Detect DOM-based XSS`
-
-- Rule: [codesink/no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)
-- Recommended: `true`
-
-### `Detect DOM-based open redirect`
-
-- Rule: [codesink/no-open-redirect](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-open-redirect.md)
-- Recommended: `true`
-
-### `Detect DOM-based JavaScript injection`
-
-- Rule: [codesink/no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)
-- Recommended: `true`
-
-### `Detect DOM-based Cookie Manipulation`
-
-- Rule: [codesink/no-cookie-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-cookie-manipulation.md)
-- Recommended: `true`
-
-### `Detect DOM-based document-domain manipulation`
-
-- Rule: [codesink/no-document-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-document-manipulation.md)
-- Recommended: `true`
-
-### `Detect DOM-based WebSocket-URL poisoning`
-
-- Rule: [codesink/websocket-url-poisoning](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/websocket-url-poisoning.md)
-- Recommended: `true`
-
-### `Detect DOM-based link manipulation`
-
-- Rule: [codesink/no-link-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-link-manipulation.md)
-- Recommended: `true`
-
-### `Detect Web message manipulation sinks`
-
-- Rule: [codesink/no-message-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-message-manipulation.md)
-- Recommended: `true`
-
-### `Detect Path Traversal`
-
-- Rule: [codesink/no-path-traversal](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-path-traversal.md)
-- Recommended: `true`
-
-### `Detect evil Regex`
-
-- Rule: [codesink/no-evil-regex](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-evil-regex.md)
-- Recommended: `true`
-
-### `Detect Regex injection`
-
-- Rule: [codesink/no-regex-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-regex-injection.md)
-- Recommended: `true`
-
-### `Detect hard-coded credentials`
-
-- Rule: [codesink/no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md)
-- Recommended: `true`
+| Vulnerability sinks                    | Rule                                                                                                                               |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| DOM-based XSS                          | [no-dom-xss](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-dom-xss.md)                             |
+| DOM-based open redirect                | [no-open-redirect](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-open-redirect.md)                 |
+| DOM-based JavaScript injection         | [no-eval-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-eval-injection.md)               |
+| DOM-based Cookie manipulation          | [no-cookie-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-cookie-manipulation.md)     |
+| DOM-based document-domain manipulation | [no-document-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-document-manipulation.md) |
+| DOM-based WebSocket-URL poisoning      | [websocket-url-poisoning](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/websocket-url-poisoning.md)   |
+| DOM-based link manipulation            | [no-link-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-link-manipulation.md)         |
+| Web message manipulation               | [no-message-manipulation](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-message-manipulation.md)   |
+| Path traversal                         | [no-path-traversal](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-path-traversal.md)               |
+| Evil regex                             | [no-evil-regex](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-evil-regex.md)                       |
+| Regex injection                        | [no-regex-injection](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-regex-injection.md)             |
+| Hard-coded credentials                 | [no-hardcoded-credentials](https://github.com/Sampaguitas/eslint-plugin-codesink/blob/main/docs/rules/no-hardcoded-credentials.md) |
